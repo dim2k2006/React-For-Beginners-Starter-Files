@@ -37,8 +37,6 @@ class App extends React.Component {
     }
 
     addToOrder(key) {
-        console.log('add to order');
-
         const order = {...this.state.order};
 
         order[key] = order[key] + 1 || 1;
@@ -59,7 +57,7 @@ class App extends React.Component {
                     </ul>
                 </div>
 
-                <Order />
+                <Order fishes={this.state.fishes} order={this.state.order} />
 
                 <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
             </div>
