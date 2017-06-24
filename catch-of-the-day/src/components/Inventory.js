@@ -10,12 +10,12 @@ class Inventory extends React.Component {
 
     handleChange(event, key) {
         const fish = this.props.fishes[key];
-        const updateFish = {
+        const updatedFish = {
             ...fish,
             [event.target.name]: event.target.value
         };
 
-        this.props.updateFish(key, updateFish);
+        this.props.updateFish(key, updatedFish);
     }
 
     renderInventory(key) {
@@ -23,14 +23,14 @@ class Inventory extends React.Component {
 
         return (
             <div className="fish-edit" key={key}>
-                <input type="text" placeholder="Fish Name" value={fish.name} onChange={(event) => this.handleChange(event, key)} />
-                <input type="text" placeholder="Fish Price" value={fish.price} onChange={(event) => this.handleChange(event, key)} />
-                <select value={fish.status} onChange={(event) => this.handleChange(event, key)}>
+                <input type="text" name="name" placeholder="Fish Name" value={fish.name} onChange={(event) => this.handleChange(event, key)} />
+                <input type="text" name="price" placeholder="Fish Price" value={fish.price} onChange={(event) => this.handleChange(event, key)} />
+                <select name="status" value={fish.status} onChange={(event) => this.handleChange(event, key)}>
                     <option value="available">Fresh!</option>
                     <option value="unavailable">Sold Out!</option>
                 </select>
-                <textarea placeholder="Fish Desc" value={fish.desc} onChange={(event) => this.handleChange(event, key)}></textarea>
-                <input type="text" placeholder="Fish Image" value={fish.image} onChange={(event) => this.handleChange(event, key)} />
+                <textarea name="desc" placeholder="Fish Desc" value={fish.desc} onChange={(event) => this.handleChange(event, key)}></textarea>
+                <input type="text" name="image" placeholder="Fish Image" value={fish.image} onChange={(event) => this.handleChange(event, key)} />
             </div>
         )
     }
